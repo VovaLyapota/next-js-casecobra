@@ -23,17 +23,17 @@ export const MODELS = {
 } as const;
 
 export const MATERIALS = {
-  name: "materials",
+  name: "material",
   options: [
     {
       label: "Silicone",
-      option: "silicone",
+      value: "silicone",
       description: undefined,
       price: PRODUCT_PRICES.material.silicone,
     },
     {
       label: "Soft Polycarbonate",
-      option: "polycarbonate",
+      value: "polycarbonate",
       description: "Scratch-resistant coating",
       price: PRODUCT_PRICES.material.polycarbonate,
     },
@@ -41,17 +41,17 @@ export const MATERIALS = {
 } as const;
 
 export const FINISHES = {
-  name: "finishes",
+  name: "finish",
   options: [
     {
       label: "Smooth Finish",
-      option: "smooth",
+      value: "smooth",
       description: undefined,
       price: PRODUCT_PRICES.finish.smooth,
     },
     {
       label: "Textured Finish",
-      option: "textured",
+      value: "textured",
       description: "Soft grippy texture",
       price: PRODUCT_PRICES.finish.textured,
     },
