@@ -8,7 +8,7 @@ datasource db {
 }
 
 enum OrderStatus {
-  fulfiled
+  fulfilled
   shipped
   awaiting_shipment
 }
@@ -48,8 +48,7 @@ model Configuration {
   material        CaseMaterial?
   finish          CaseFinish?
   croppedImageUrl String?
-
-  Order Order[]
+  Order           Order[]
 }
 
 model User {
@@ -73,11 +72,11 @@ model Order {
 
   shippingAddress   ShippingAddress? @relation(fields: [shippingAddressId], references: [id])
   shippingAddressId String?
-  BillingAddress    BillingAddress?  @relation(fields: [billingAddressId], references: [id])
+  billingAddress    BillingAddress?  @relation(fields: [billingAddressId], references: [id])
   billingAddressId  String?
 
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updated   DateTime @updatedAt
 }
 
 model ShippingAddress {
