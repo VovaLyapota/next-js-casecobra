@@ -12,9 +12,7 @@ export const createCheckoutSession = async ({
   configId: string;
 }) => {
   const configuration = await db.configuration.findUnique({
-    where: {
-      id: configId,
-    },
+    where: { id: configId },
   });
 
   if (!configuration) {
@@ -44,6 +42,8 @@ export const createCheckoutSession = async ({
     },
   });
 
+  console.log(user.id, configuration.id);
+
   if (existingOrder) {
     order = existingOrder;
   } else {
@@ -70,9 +70,7 @@ export const createCheckoutSession = async ({
     cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/configure/preview?id=${configuration.id}`,
     payment_method_types: ["card", "paypal"],
     mode: "payment",
-    shipping_address_collection: {
-      allowed_countries: ["DE", "US", "UA"],
-    },
+    shipping_address_collection: { allowed_countries: ["DE", "US", "UA"] },
     metadata: {
       userId: user.id,
       orderId: order.id,
